@@ -22881,11 +22881,22 @@ __webpack_require__.r(__webpack_exports__);
       user: null
     };
   },
-  mounted: function mounted() {
-    var _this = this;
+  methods: {
+    logout: function logout() {
+      var _this = this;
+
+      axios.post('/api/logout').then(function () {
+        _this.$routes.push({
+          name: "Home"
+        });
+      });
+    }
+  },
+  created: function created() {
+    var _this2 = this;
 
     axios.get('/api/user').then(function (res) {
-      _this.user = res.data;
+      _this2.user = res.data;
     });
   }
 });
@@ -23329,8 +23340,12 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("    <p>Name: {{ user.name }}</p>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("    <p>Email: {{ user.email }}</p>")], 2112
-  /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Name: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.user.name), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Email: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.user.email), 1
+  /* TEXT */
+  )], 64
+  /* STABLE_FRAGMENT */
   );
 }
 
@@ -23355,7 +23370,9 @@ __webpack_require__.r(__webpack_exports__);
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window.Vue = require('vue').default;
+// window.axios = require("axios");
+
 
 
 

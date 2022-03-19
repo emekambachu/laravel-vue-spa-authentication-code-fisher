@@ -6,6 +6,9 @@
 
 require('./bootstrap');
 
+// window.Vue = require('vue').default;
+// window.axios = require("axios");
+
 import { createApp } from 'vue';
 import router from './routes';
 import axios from 'axios';

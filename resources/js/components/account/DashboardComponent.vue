@@ -1,7 +1,7 @@
 <template>
     <h5>Dashboard</h5>
-<!--    <p>Name: {{ user.name }}</p>-->
-<!--    <p>Email: {{ user.email }}</p>-->
+    <p>Name: {{ user.name }}</p>
+    <p>Email: {{ user.email }}</p>
 </template>
 
 <script>
@@ -11,7 +11,14 @@
                 user: null
             }
         },
-        mounted(){
+        methods: {
+            logout(){
+                axios.post('/api/logout').then(() =>{
+                    this.$routes.push({ name: "Home" });
+                })
+            }
+        },
+        created(){
             axios.get('/api/user').then((res) => {
                 this.user = res.data
             })
