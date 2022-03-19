@@ -36,7 +36,7 @@
                                        v-model="form.password">
                                 <span class="invalid-feedback"
                                       role="alert">
-                                <strong>{{ errors.password[0] }}</strong>
+                                <strong></strong>
                                 </span>
                             </div>
                         </div>

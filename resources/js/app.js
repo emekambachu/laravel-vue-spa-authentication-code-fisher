@@ -6,11 +6,10 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue').default;
-window.axios = require("axios");
-
 import { createApp } from 'vue';
 import router from './routes';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 
 /**
  * The following block of code may be used to automatically register your
@@ -36,4 +35,4 @@ createApp({
     components: {
         ExampleComponent
     }
-}).use(router).mount('#app');
+}).use(router, axios, VueAxios).mount('#app');
