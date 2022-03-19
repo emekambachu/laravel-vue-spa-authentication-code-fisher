@@ -42,6 +42,13 @@ const routes = [
         path: '/account/dashboard',
         name: "AccountDashboard",
         component: Dashboard,
+        beforeEnter: (to, from, next) => {
+            axios.get('/api/authenticated').then(() => {
+               next()
+            }).catch(() => {
+                return next({ name: 'Login' })
+            });
+        }
     },
 ];
 
